@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB Investment Platform</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; text-align: center; padding: 20px; direction: rtl; }
+        .container { max-width: 500px; margin: 0 auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; margin-bottom: 20px; }
+        .plan-box { background: #e8f8f5; border: 2px solid #2ecc71; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .payment-info { background: #fef9e7; border: 2px dashed #f1c40f; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        input, button { width: 90%; padding: 12px; margin: 8px 0; border-radius: 6px; border: 1px solid #ccc; font-size: 15px; box-sizing: border-box; }
+        button { background-color: #27ae60; color: white; font-weight: bold; cursor: pointer; border: none; transition: 0.3s; }
+        button:hover { background-color: #219150; }
+        .withdraw-btn { background-color: #e67e22; }
+        .withdraw-btn:hover { background-color: #d35400; }
+        .highlight { font-size: 18px; color: #d35400; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>AB ارننگ پلیٹ فارم</h1>
+    
+    <!-- پلان کی معلومات -->
+    <div class="plan-box">
+        <h3>سرمایہ کاری پلان</h3>
+        <p><strong>ڈپازٹ رقم:</strong> 3,000 روپے</p>
+        <p><strong>روزانہ منافع:</strong> 500 روپے</p>
+    </div>
+
+    <!-- ایزی پیسہ پیمنٹ معلومات -->
+    <div class="payment-info">
+        <h3>ایزی پیسہ (Easypaisa) ڈپازٹ معلومات</h3>
+        <p><strong>اکاؤنٹ نام (Account Title):</strong> <span class="highlight">Adnan</span></p>
+        <p><strong>ایزی پیسہ نمبر:</strong> <span class="highlight">03373531917</span></p>
+        <small style="color: #7f8c8d;">پہلے اوپر دیے گئے نمبر پر 3,000 روپے بھیجیں، پھر نیچے فارم میں معلومات درج کریں۔</small>
+    </div>
+
+    <hr style="border: 0.5px solid #eee; margin: 20px 0;">
+
+    <!-- ڈپازٹ فارم -->
+    <h2>ڈپازٹ فارم</h2>
+    <form action="/deposit" method="POST">
+        <input type="text" name="user_name" placeholder="آپ کا نام" required>
+        <input type="text" name="phone" placeholder="آپ کا ایزی پیسہ نمبر" required>
+        <input type="number" name="amount" value="3000" readonly style="background-color: #f0f0f0; cursor: not-allowed;">
+        <input type="text" name="trx_id" placeholder="ترانزیکشن ID (Trx ID)" required>
+        <button type="submit">3,000 روپے ڈپازٹ کنفرم کریں</button>
+    </form>
+
+    <hr style="border: 0.5px solid #eee; margin: 20px 0;">
+
+    <!-- ود ڈرا فارم -->
+    <h2>ود ڈرا (Withdraw) فارم</h2>
+    <form action="/withdraw" method="POST">
+        <input type="text" name="phone" placeholder="ایزی پیسہ نمبر" required>
+        <input type="number" name="amount" placeholder="ود ڈرا کی رقم (مثلاً 500)" required>
+        <button type="submit" class="withdraw-btn">ود ڈرا کی درخواست بھیجیں</button>
+    </form>
+</div>
+
+</body>
+</html>
